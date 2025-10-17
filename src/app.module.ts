@@ -6,6 +6,11 @@ import { AppService } from './app.service';
 import { DbCheckService } from './db-check.service';
 import { typeOrmConfig } from './config/data.config';
 import { UserModule } from './user/user.module';
+import { EmployeeModule } from './employee/employee.module';
+import { BankAccountModule } from './bank-account/bank-account.module';
+import { LectureModule } from './lecture/lecture.module';
+import { ProjectModule } from './project/project.module';
+import { EmployeeProjectModule } from './employee-project/employee-project.module';
 @Module({
   imports: [
     UserModule,
@@ -13,10 +18,33 @@ import { UserModule } from './user/user.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+   
+
 
     // Database connection using data.config.ts file
     TypeOrmModule.forRoot(typeOrmConfig),
+   
 
+
+    EmployeeModule,
+   
+
+
+    BankAccountModule,
+   
+
+
+    LectureModule,
+   
+
+
+    ProjectModule,
+   
+
+
+    EmployeeProjectModule,
+
+    
     // Database connection using .env file
 
     // TypeOrmModule.forRoot({
