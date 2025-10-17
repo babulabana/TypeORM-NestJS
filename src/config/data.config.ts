@@ -22,7 +22,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   //  migrations: [__dirname + '/migrations/*.{ts,js}'],
   //  logging: true,
   entities: [User],
-  migrations: ['src/migration/*.ts'],
+  migrations: ['src/migrations/*.ts'],
   subscribers: [],
 
   // logging: true

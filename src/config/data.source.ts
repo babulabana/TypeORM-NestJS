@@ -13,5 +13,5 @@ export const AppDataSource = new DataSource({
   logging: true,
   entities: ['src/**/*.entity.{ts,js}'],  // <-- automatically includes User entity
   // migrations: ['src/migrations/*.ts'], 
-  migrations: ['src/migration/*.ts'],
+  migrations: ['src/migrations/*.ts'],
 });

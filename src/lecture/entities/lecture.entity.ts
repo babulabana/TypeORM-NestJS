@@ -1,20 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Employee } from '../../employee/entities/employee.entity';
 
 @Entity('lectures')
 export class Lecture {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number; // PK, Auto-increment
 
   @Column({ length: 100 })
-  title: string;
+  topic: string; // NOT NULL
 
-  @Column({ type: 'text', nullable: true })
-  description: string;
+  @Column({ type: 'date' })
+  date: string; // NOT NULL
 
-  // Many lectures belong to one employee
-  @ManyToOne(() => Employee, employee => employee.lectures, {
-    onDelete: 'CASCADE', // optional: deleting employee deletes their lectures
-  })
+  @Column()
+  employee_id: number;
+  
+  @ManyToOne(() => Employee, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'employee_id' }) // FK to Employee.id
   employee: Employee;
 }

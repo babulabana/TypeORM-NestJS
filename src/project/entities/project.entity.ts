@@ -1,18 +1,18 @@
+import { Employee } from 'src/employee/entities/employee.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
-import { Employee } from '../../employee/entities/employee.entity';
 
-@Entity('project')
+@Entity('projects')
 export class Project {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number; // PK, Auto-increment
 
   @Column({ length: 100 })
-  name: string;
+  name: string; // NOT NULL
 
-  @Column({ nullable: true })
-  description: string;
+  @Column({ type: 'text', nullable: true })
+  description: string | null; // Nullable
 
-  // Many-to-Many relation with Employee
+  
   @ManyToMany(() => Employee, employee => employee.projects)
   employees: Employee[];
 }

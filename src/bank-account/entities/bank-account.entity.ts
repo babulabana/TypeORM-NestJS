@@ -1,20 +1,27 @@
-// src/bank-account/entities/bank-account.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Employee } from '../../employee/entities/employee.entity';
 
-@Entity('bank_account')
-export class BankAccount {
+@Entity('accounts')
+export class Account {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number; // PK, Auto-increment
+
+  @Column({ length: 50, unique: true })
+  account_number: string; // UNIQUE, NOT NULL
+
+  @Column({ length: 100 })
+  bank_name: string; // NOT NULL
   
-  @Column({ length: 20, unique: true })
-  account_number: string;
+  @Column()
+  employee_id: number;
 
-  @Column({ length: 50 })
-  bank_name: string;
-
-  // Unidirectional One-to-One
   @OneToOne(() => Employee)
-  @JoinColumn() // creates employeeId FK in bank_account table
+  @JoinColumn({ name: 'employee_id' }) // FK to Employee.id
   employee: Employee;
 }
