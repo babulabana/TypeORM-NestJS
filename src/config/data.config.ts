@@ -1,6 +1,12 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
 import { User } from '../user/entities/user.entity';
+import { Employee } from 'src/employee/entities/employee.entity';
+import { Project } from 'src/project/entities/project.entity';
+import { Account } from 'src/bank-account/entities/bank-account.entity';
+import { Lecture } from 'src/lecture/entities/lecture.entity';
+import { Student } from 'src/student/entities/student.entity';
+import { School } from 'src/school/entities/school.entity';
 
 // Load .env file
 dotenv.config();
@@ -15,15 +21,16 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   autoLoadEntities: true,
   
 
+  entities: [
+  Employee,
+  Project,
+  Student,
+  Lecture,
+  Account,
+  School
+  // __dirname + '/../**/*.entity{.ts,.js}',
+],
+
   synchronize: false,
-  // entities: [__dirname + '/**/*.entity{.ts,.js}'],
-
-  // synchronize: true,
-  //  migrations: [__dirname + '/migrations/*.{ts,js}'],
-  //  logging: true,
-  entities: [User],
-  migrations: ['src/migrations/*.ts'],
-  subscribers: [],
-
-  // logging: true
+  migrations: ['dist/migrations/*.js'],
 };

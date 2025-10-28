@@ -45,11 +45,11 @@ export class EmployeeService {
     return this.employeeRepository.findById(id);
   }
 
-  async getEmployeesByAge(age: number): Promise<Employee[]> {
-    return this.employeeRepository.findByAge(age);
-  }
+  // async getEmployeesByAge(age: number): Promise<Employee[]> {
+  //   return this.employeeRepository.findByAge(age);
+  // }
 
-  async getEmployeesByDepartment(department: string): Promise<Employee[]> {
-    return this.employeeRepository.findByDepartment(department);
-  }
+  // async getEmployeesByDepartment(department: string): Promise<Employee[]> {
+  //   return this.employeeRepository.findByDepartment(department);
+  // }
 }

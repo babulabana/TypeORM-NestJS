@@ -23,7 +23,7 @@ export class EmployeeRepository {
   //   return this.repository.find({ where: { age } });
   // }
 
-  async findByDepartment(department: string): Promise<Employee[]> {
-    return this.repository.find({ where: { department } });
-  }
+  // async findByDepartment(department: string): Promise<Employee[]> {
+  //   return this.repository.find({ where: { department } });
+  // }
 }

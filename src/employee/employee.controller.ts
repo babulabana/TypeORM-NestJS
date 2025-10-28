@@ -24,15 +24,15 @@ export class EmployeeController {
     return this.employeeService.getEmployeeById(+id);
   }
 
-  @Get('age/:age')
-  findByAge(@Param('age') age: string) {
-    return this.employeeService.getEmployeesByAge(+age);
-  }
+  // @Get('age/:age')
+  // findByAge(@Param('age') age: string) {
+  //   return this.employeeService.getEmployeesByAge(+age);
+  // }
 
-  @Get('department/:department')
-  findByDepartment(@Param('department') department: string) {
-    return this.employeeService.getEmployeesByDepartment(department);
-  }
+  // @Get('department/:department')
+  // findByDepartment(@Param('department') department: string) {
+  //   return this.employeeService.getEmployeesByDepartment(department);
+  // }
 
   // ------------------ UPDATE ------------------
   @Patch(':id')

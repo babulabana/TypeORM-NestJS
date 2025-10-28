@@ -10,7 +10,10 @@ import { EmployeeModule } from './employee/employee.module';
 import { BankAccountModule } from './bank-account/bank-account.module';
 import { LectureModule } from './lecture/lecture.module';
 import { ProjectModule } from './project/project.module';
-import { EmployeeProjectModule } from './employee-project/employee-project.module';
+// import { EmployeeProjectModule } from './employee-project/employee-project.module';
+import { StudentModule } from './student/student.module';
+// import { DegreeModule } from './degree/degree.module';
+import { SchoolModule } from './school/school.module';
 @Module({
   imports: [
     UserModule,
@@ -18,33 +21,26 @@ import { EmployeeProjectModule } from './employee-project/employee-project.modul
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-   
-
 
     // Database connection using data.config.ts file
     TypeOrmModule.forRoot(typeOrmConfig),
-   
-
 
     EmployeeModule,
-   
-
 
     BankAccountModule,
-   
-
 
     LectureModule,
-   
-
 
     ProjectModule,
-   
 
+    // EmployeeProjectModule,
 
-    EmployeeProjectModule,
+    StudentModule,
 
-    
+    // DegreeModule,
+
+    SchoolModule,
+
     // Database connection using .env file
 
     // TypeOrmModule.forRoot({
